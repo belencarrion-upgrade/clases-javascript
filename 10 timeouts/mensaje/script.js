@@ -1,6 +1,6 @@
 const mensaje = document.querySelector('#alertaMensaje');
 
-function mostrarMensaje(){
+const mostrarMensaje = () => {
     const nombre = document.querySelector('#nombre').value;
     const comentario = document.querySelector('#comentario').value;
     if(nombre!='' && comentario!=''){ // solo si no están vacíos
@@ -9,7 +9,7 @@ function mostrarMensaje(){
     }
 }
 
-function ocultarMensaje(){
+const ocultarMensaje = () => {
     mensaje.style.display = 'none'; // ocultar
 }
 
