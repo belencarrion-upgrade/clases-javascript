@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puntuación</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+        <div class="container">
+            <span class="navbar-brand mb-0 h1">Navbar</span>
+            <div id="usuario"><i class="fa-solid fa-user"></i> <span id="nombreUsuario">...</span></div>
+        </div>
+    </nav>
+    <main>
+        <div class="container">
+            <div class="card mt-3 p-3">
+                <h1>Puntuación</h1>
+                <p>Completa el fichero script.js para permitir al usuario introducir su puntuación. Para rellenar las estrellas, puedes hacer uso de la clase <code>fa-solid fa-star</code> de font-awesome. Puedes encontrar más información <a href="https://fontawesome.com/icons/star?s=solid&f=classic" target="_blank">aquí</a>. </p>
+                <p>También puedes usar la clase <code>text-warning</code> de bootstrap para que se muetren en amarillo. Encuentra más información sobre colores de bootrstrap <a href="https://getbootstrap.com/docs/4.0/utilities/colors/" target="_blank">aquí</a>.</p>
+                <p>Por último, modifica el div con id <code>puntuacion</code> para que se muestre solo cuando se haya seleccionado una puntuación, y muestre el número de estrellas seleccionadas.</p>
+                <div class="row ml-0" id="ratingSelector">
+                    <i class="fa-regular fa-star" rating="1"></i>
+                    <i class="fa-regular fa-star" rating="2"></i>
+                    <i class="fa-regular fa-star" rating="3"></i>
+                    <i class="fa-regular fa-star" rating="4"></i>
+                    <i class="fa-regular fa-star" rating="5"></i>
+                </div>
+                <div class="row ml-0 mt-2">
+                    <p><span id="puntuacion">0</span> estrellas</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
