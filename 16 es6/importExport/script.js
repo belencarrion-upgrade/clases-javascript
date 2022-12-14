@@ -1,22 +1,24 @@
-import {toys, isBestSeller} from './toys.js';
+import {nombre, toys, isBestSeller} from './toys.js';
 
+console.log(nombre);
 console.log(toys);
 
 const lista = document.querySelector('ul');
 const tabla = document.querySelector('table');
 for(let toy of toys){
-    const item = document.createElement('li');
-    item.innerText = toy.name;
-    lista.append(item);
+    const li = document.createElement('li');
+    li.innerHTML = `<strong>${toy.name}</strong> (${toy.sellCount})`;
+    lista.append(li);
 
-    const row = document.createElement('tr');
-    for(let dato in toy){
-        const cell = document.createElement('td');
-        cell.innerText = toy[dato];
-        if(isBestSeller(toy) && dato=='name'){
-            cell.innerHTML += ' <i class="fa-solid fa-star text-warning"></i>';
+    const fila = document.createElement('tr');
+    for(let propiedad in toy){
+        const celda = document.createElement('td');
+        celda.innerHTML = toy[propiedad];
+        if(isBestSeller(toy) && propiedad=='name'){
+            celda.innerHTML += ' <i class="fa-solid fa-star text-warning"></i>';
         }
-        row.append(cell);
+        fila.append(celda);
     }
-    tabla.append(row);
+    tabla.append(fila);
 }
+

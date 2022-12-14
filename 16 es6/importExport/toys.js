@@ -1,3 +1,5 @@
+export const nombre = "Pepita";
+
 export const toys = [
 	{id: 5, name: 'Buzz MyYear', sellCount: 10}, 
 	{id: 11, name: 'Action Woman', sellCount: 24}, 
@@ -7,5 +9,5 @@ export const toys = [
 ];
 
 export function isBestSeller(toy){
-    return toy.sellCount >= 15;
+	return toy.sellCount > 15;
 }

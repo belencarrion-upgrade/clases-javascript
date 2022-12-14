@@ -21,6 +21,13 @@ function modificarObjeto(event){
     rellenarTarjeta();
 }
 
+// con object destructuring(es6)
+// function modificarObjeto(event){
+//     const {id, value} = event.target;
+//     persona[id]=value;
+//     rellenarTarjeta();
+// }
+
 /**
  * rellena la tarjeta con los datos del objeto
  */
