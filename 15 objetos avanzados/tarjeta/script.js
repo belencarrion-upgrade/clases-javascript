@@ -1,24 +1,39 @@
-const datos = {};
+const persona = {}; // aquí guardaremos los datos del formulario
 
-document.querySelectorAll('.form-control').forEach(input=>{
-    input.addEventListener('change', modificarDatos);
-})
-
-function modificarDatos (event) {
-    const {id, value} = event.target;
-    datos[id] = value;
-    dibujarTarjeta();
+// seleccionamos todos los inputs
+const inputs = document.querySelectorAll('.form-control');
+// cuando se modifique un input, llamamos a modificarObjeto
+for(let input of inputs){
+    input.addEventListener('change', modificarObjeto);
 }
 
-function dibujarTarjeta() {
-    for(dato in datos){
-        if(dato!=''){
-            if(dato!='imagen') {
-                document.querySelector('#tarjeta .'+dato).innerText = datos[dato];
-            }
-            else {
-                document.querySelector('#tarjeta .'+dato).src = datos[dato];
-            }
+/*
+* modificarObjeto modificará los datos del objeto persona
+*/
+function modificarObjeto(event){
+    console.log(event.target);
+    const dato = event.target.id;
+    console.log('el dato que he cambiado es '+dato);
+    const valor = event.target.value;
+    console.log('el valor nuevo es '+valor);
+    persona[dato]=valor;
+    console.log(persona);
+    rellenarTarjeta();
+}
+
+/**
+ * rellena la tarjeta con los datos del objeto
+ */
+function rellenarTarjeta(){
+    for(let propiedad in persona){
+        console.log(propiedad);
+        const valor = persona[propiedad];
+        if(propiedad=='imagen'){
+            // si por ejemplo la propiedad es nombre -> seleccionamos los .nombre
+            document.querySelector('.'+propiedad).src = valor;
+        }
+        else{
+            document.querySelector('.'+propiedad).innerText = valor;
         }
     }
 }
