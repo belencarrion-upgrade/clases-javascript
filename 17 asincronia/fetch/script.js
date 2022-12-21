@@ -1,46 +1,70 @@
 'use strict';
 
-// fetch('https://jsonmock.hackerrank.com/api/movies/')
-//     .then(response => response.json())
-//     .then(response => {
-//         console.log(response);
-//     });
+/*
+ALGUNAS APIS
+------------
+https://jsonmock.hackerrank.com/api/movies/
+https://dog.ceo/api/breeds/image/random
+https://api.agify.io?name=laura
+https://api.adviceslip.com/advice
+*/
 
-// async function obtenerDatos(){
-//     const respuesta = await fetch('https://jsonmock.hackerrank.com/api/movies/');
-//     const datos = await respuesta.json();
-//     console.log(datos);
-// }
+fetch("https://pokeapi.co/api/v2/pokemon/")
+    .then(respuesta => respuesta.json())
+    .then(respuesta => {
+        console.log('todo ha ido bien');
+        console.log(respuesta);
+    })
+    .catch(respuesta => {
+        console.log('algo ha fallado');
+        console.log(respuesta);
+    });
 
-// obtenerDatos();
-
-function obtenerImagen(){
-    fetch('https://dog.ceo/api/breeds/image/random')
-        .then(response => response.json())
-        .then(response=>{
-            const imagen = document.querySelector('img');
-            imagen.src= response.message;
-        });
+async function obtenerDatos(){
+    try{
+        const respuesta = await fetch("https://pokeapi.co/api/v2/pokemon/");
+        const datos = await respuesta.json();
+        console.log(datos);
+    }
+    catch(error){
+        console.log('algo ha fallado');
+        console.log(error);
+    }
 }
+
+obtenerDatos();
+
+async function obtenerImagen(){
+    try{
+        const respuesta = await fetch("https://dog.ceo/api/breeds/image/random");
+        const datos = await respuesta.json();
+        console.log(datos);
+        const imagen = document.querySelector('img');
+        imagen.src = datos.message;
+    }
+    catch(error){
+        console.log('algo ha fallado');
+        console.log(error);
+    }
+}
+
+obtenerImagen();
 
 document.querySelector('button').addEventListener('click', obtenerImagen);
 
 function predecirEdad(nombre){
-fetch(`https://api.agify.io?name=${nombre}`)
-    .then(response=>response.json())
-    .then(response=>{
-        console.log(`Si te llamas ${nombre}, probablemente tengas ${response.age} años`)
-    });
+    // fetch("https://api.agify.io/?name="+nombre) // https://api.agify.io/?name=belen
+    fetch(`https://api.agify.io/?name=${nombre}`) // https://api.agify.io/?name=belen
+        .then(respuesta => respuesta.json())
+        .then(respuesta => {
+            console.log(`si te llamas ${nombre}, probablemente tengas ${respuesta.age} años`);
+            // console.log('si te llamas '+nombre+', probablemente tengas '+respuesta.age+' años');
+        })
+        .catch(respuesta => {
+            console.log('algo ha fallado');
+            console.log(respuesta);
+        });
 }
-
-predecirEdad('belen');
-predecirEdad('maría');
-predecirEdad('juan');
-predecirEdad('mateo');
-
-fetch('https://api.adviceslip.com/advice')
-    .then(response=>response.json())
-    .then(response=>{
-        console.log('random users');
-        console.log(response);
-    });
+predecirEdad('Belén');
+predecirEdad('Miguel');
+predecirEdad('Lola');
